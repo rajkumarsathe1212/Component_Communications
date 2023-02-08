@@ -1,0 +1,46 @@
+
+
+<div>
+  <h2>Parent Component</h2>
+
+  <h3>Parent to child using @Input Decorator</h3>
+
+
+  <input type="text" [(ngModel)]="ToChild" placeholder="Enter text">
+
+  <button (click)="sendMsg()">Send</button><br>
+
+  <h5>Message: {{ToChild}}</h5>
+  <hr>
+
+
+  <app-child1 [fromParent]="message"></app-child1>
+
+  <hr>
+
+  <h2>Child To Parent using @Output and EventEmitter</h2>
+
+  <h5>Message from child : {{fromChild}}</h5>
+
+  <app-child2 (sendData)="receiveMessage($event)"></app-child2>
+
+  <hr>
+
+  <h2>Child to Parent using View Child</h2>
+
+  <app-child3></app-child3>
+
+  <button (click)="start()">Start</button>
+  <button (click)="stop()">Stop</button>
+
+  <hr>
+
+  <h2>Child to child using service</h2>
+
+  <div style="display: flex;">
+    <app-child4></app-child4>
+    <app-child5></app-child5>
+  </div>
+  <button (click)="reset()">Reset</button>
+
+</div>
